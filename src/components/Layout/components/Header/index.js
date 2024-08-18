@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
@@ -20,6 +19,8 @@ import {
 
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { UploadIcon } from '~/icons';
+import Image from '~/components/Image';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
@@ -142,7 +143,7 @@ function Header() {
                         <>
                             <Tippy interactive={true} delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -154,11 +155,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/cd2c0357cd69e6efa845ee320c734eb5.jpeg?lk3s=a5d48078&nonce=50976&refresh_token=57f57b2a3f1bd80b2f309e4bf84294d1&x-expires=1724122800&x-signature=s%2Ba%2BkzNY3wPYBXutEZS7Eo6FOJA%3D&shp=a5d48078&shcp=81f88b70"
+                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/8ffc91fc9e00a23492c185af03f2301b.jpeg?lk3s=30310797&nonce=81265&refresh_token=92f2966e3efef9a3763bc2b7d30df49b&x-expires=1724079600&x-signature=eoDCpQIPuRgzL2oRqbmq%2FnQb%2Bvs%3D&shp=30310797&shcp=-"
                                 alt="Nguyễn Hữu Mạnh"
-                            ></img>
+                            />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
