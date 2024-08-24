@@ -48,7 +48,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
                                 onBack={() => setHistory((prev) => prev.slice(0, prev.length - 1))}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}> {renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
