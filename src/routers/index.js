@@ -1,5 +1,5 @@
-import { HeaderOnly } from '~/components/Layout';
-import routesConfig from '~/config/routes';
+import { HeaderOnly } from '~/Layout';
+import config from '~/config';
 
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
@@ -8,27 +8,27 @@ import Search from '~/pages/Search';
 import Profile from '~/pages/Profile';
 const publicRouters = [
     {
-        path: routesConfig.home,
+        path: config.routes.home,
         component: Home,
     },
 
     {
-        path: routesConfig.following,
+        path: config.routes.following,
         component: Following,
     },
     {
-        path: routesConfig.profile,
+        path: config.routes.profile,
         component: Profile,
     },
 
     {
-        path: routesConfig.upload,
+        path: config.routes.upload,
         component: Upload,
         layout: HeaderOnly,
     },
 
     {
-        path: routesConfig.upload,
+        path: config.routes.upload,
         component: Search,
         layout: null,
     },
