@@ -16,26 +16,26 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [isShowResults, setIsShowResults] = useState(true);
+    const [isShowResults, setIsShowResults] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const deBounced = useDeBounce(searchValue, 600);
+    const deBouncedValue = useDeBounce(searchValue, 600);
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!deBounced.trim()) {
+        if (!deBouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
 
         const fetchApi = async () => {
             setIsLoading(true);
-            const result = await searchService.search(deBounced);
+            const result = await searchService.search(deBouncedValue);
             setSearchResult(result);
             setIsLoading(false);
         };
 
         fetchApi();
-    }, [deBounced]);
+    }, [deBouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -81,7 +81,7 @@ function Search() {
                     <input
                         ref={inputRef}
                         value={searchValue}
-                        placeholder="Search accounts and videos"
+                        placeholder="Search..."
                         spellCheck={false}
                         onChange={handleChange}
                         onFocus={() => setIsShowResults(true)}
